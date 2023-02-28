@@ -7,7 +7,7 @@ import boto3
 from boto3.s3.transfer import TransferConfig
 from tempfile import NamedTemporaryFile
 from botocore.exceptions import ClientError
-
+import os
 from openpyxl import Workbook
 
 import threading
