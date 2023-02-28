@@ -23,6 +23,14 @@
                 "lambda:InvokeFunction"
               ],
               "Resource": "arn:aws:lambda:us-east-1"
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:GetObject",
+                "s3:PutObject"
+              ],
+              "Resource": "arn:aws:s3:::*"
             }
           ]
         }
@@ -100,6 +108,9 @@
                       },
                       {
                         "$ref": "$[\"service\"][\"provider\"][\"iam\"][\"role\"][\"statements\"][0]"
+                      },
+                      {
+                        "$ref": "$[\"service\"][\"provider\"][\"iam\"][\"role\"][\"statements\"][1]"
                       }
                     ]
                   }
@@ -126,7 +137,7 @@
             "Properties": {
               "Content": {
                 "S3Bucket": "tlm-talmaclick-poc",
-                "S3Key": "serverless/poc-multi-threads-krhon3/test/1676942588065-2023-02-21T01:23:08.065Z/pythonRequirements.zip"
+                "S3Key": "serverless/poc-multi-threads-krhon3/test/1677607883590-2023-02-28T18:11:23.590Z/pythonRequirements.zip"
               },
               "LayerName": "poc-multi-threads-krhon3-test-libww",
               "Description": "E2E Backend libraries",
@@ -140,7 +151,7 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "tlm-talmaclick-poc",
-                "S3Key": "serverless/poc-multi-threads-krhon3/test/1676943054078-2023-02-21T01:30:54.078Z/poc-multi-threads-krhon3.zip"
+                "S3Key": "serverless/poc-multi-threads-krhon3/test/1677607883590-2023-02-28T18:11:23.590Z/poc-multi-threads-krhon3.zip"
               },
               "Handler": "handler.handler",
               "Runtime": "python3.9",
@@ -169,14 +180,14 @@
               "CoreLogGroup"
             ]
           },
-          "CoreLambdaVersionmOz2OCD61DvoHxPDF4rLtypvh1Fm46kPZ0wRzEp05Y": {
+          "CoreLambdaVersion5LIryDvcn2pALcg9s2IQxEKtK8Yy03aOASBJ7guQF7M": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "CoreLambdaFunction"
               },
-              "CodeSha256": "TdK+pSEWkl3tSytzfmyQFRm/zrKJsrU+4vY9AwW77sU="
+              "CodeSha256": "yscmB9XBB0KqYIAxaEOUifc8sFoBJjwvJhDlviV2ZcQ="
             }
           }
         },
@@ -198,14 +209,14 @@
           },
           "PythonRequirementsLambdaLayerHash": {
             "Description": "Current Lambda layer hash",
-            "Value": "06a0696635a8b91920b9f731142f6d789194d51b",
+            "Value": "00e8a2fb9fdc34947a6e1e426d74b16e79465a1a",
             "Export": {
               "Name": "sls-poc-multi-threads-krhon3-test-PythonRequirementsLambdaLayerHash"
             }
           },
           "PythonRequirementsLambdaLayerS3Key": {
             "Description": "Current Lambda layer S3Key",
-            "Value": "serverless/poc-multi-threads-krhon3/test/1676942588065-2023-02-21T01:23:08.065Z/pythonRequirements.zip",
+            "Value": "serverless/poc-multi-threads-krhon3/test/1677607883590-2023-02-28T18:11:23.590Z/pythonRequirements.zip",
             "Export": {
               "Name": "sls-poc-multi-threads-krhon3-test-PythonRequirementsLambdaLayerS3Key"
             }
@@ -213,7 +224,7 @@
           "CoreLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "CoreLambdaVersionmOz2OCD61DvoHxPDF4rLtypvh1Fm46kPZ0wRzEp05Y"
+              "Ref": "CoreLambdaVersion5LIryDvcn2pALcg9s2IQxEKtK8Yy03aOASBJ7guQF7M"
             },
             "Export": {
               "Name": "sls-poc-multi-threads-krhon3-test-CoreLambdaFunctionQualifiedArn"
@@ -260,7 +271,7 @@
         "timeout": 900,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "CoreLambdaVersionmOz2OCD61DvoHxPDF4rLtypvh1Fm46kPZ0wRzEp05Y"
+        "versionLogicalId": "CoreLambdaVersion5LIryDvcn2pALcg9s2IQxEKtK8Yy03aOASBJ7guQF7M"
       }
     },
     "configValidationMode": "error",
@@ -288,7 +299,7 @@
         "artifactsS3KeyDirname": "serverless/poc-multi-threads-krhon3/test/code-artifacts",
         "deploymentBucket": "tlm-talmaclick-poc",
         "artifact": "C:\\Users\\ADMIN\\Desktop\\software\\lambda-poc\\.serverless\\poc-multi-threads-krhon3.zip",
-        "artifactDirectoryName": "serverless/poc-multi-threads-krhon3/test/1676943054078-2023-02-21T01:30:54.078Z"
+        "artifactDirectoryName": "serverless/poc-multi-threads-krhon3/test/1677607883590-2023-02-28T18:11:23.590Z"
       },
       "configValidationMode": "error",
       "functions": {
@@ -303,15 +314,14 @@
         "compatibleRuntimes": {
           "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"PythonRequirementsLambdaLayer\"][\"Properties\"][\"CompatibleRuntimes\"]"
         },
-        "package": {},
-        "artifactAlreadyUploaded": true
+        "package": {}
       }
     },
     "isDashboardMonitoringPreconfigured": false,
     "artifact": "C:\\Users\\ADMIN\\Desktop\\software\\lambda-poc\\.serverless\\poc-multi-threads-krhon3.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/poc-multi-threads-krhon3/test/1676943054078-2023-02-21T01:30:54.078Z",
+    "artifactDirectoryName": "serverless/poc-multi-threads-krhon3/test/1677607883590-2023-02-28T18:11:23.590Z",
     "artifact": "poc-multi-threads-krhon3.zip"
   }
 }
